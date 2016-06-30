@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="posthaste-AutoUpdatePlugin"
+        version="0.0.1">
+    <name>AutoUpdatePlugin</name>
+    <author>Christopher Riebs</author>
+    <description>Plugin to autoupdate CoD from Posthaste servers</description>
+
+    <js-module src="www/AutoUpdatePlugin.js" name="AutoUpdatePlugin">
+        <clobbers target="AutoUpdatePlugin" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AutoUpdatePlugin">
+                <param name="android-package" value="org.apache.cordova.plugin.AutoUpdatePlugin.AutoUpdatePlugin" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/AutoUpdatePlugin.java" target-dir="src/org/apache/cordova/plugin/AutoUpdatePlugin" />
+    </platform>
+</plugin>
